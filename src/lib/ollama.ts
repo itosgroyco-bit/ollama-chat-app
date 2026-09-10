@@ -48,7 +48,7 @@ export async function* streamChat(
   baseUrl: string,
   model: string,
   messages: OllamaMessage[],
-  signal?: AbortSignal,
+  signal?: AbortSignal | null,
 ): AsyncGenerator<string> {
   const res = await fetch(`${baseUrl}/api/chat`, {
     method: "POST",
