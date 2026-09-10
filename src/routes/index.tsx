@@ -85,9 +85,10 @@ function ChatPage() {
     try {
       const list = await listModels(getOllamaUrl());
       setModels(list);
-      if (list.length > 0 && !list.some((m) => m.name === getSavedModel())) {
-        setModel(list[0].name);
-        setSavedModel(list[0].name);
+      const first = list[0];
+      if (first && !list.some((m) => m.name === getSavedModel())) {
+        setModel(first.name);
+        setSavedModel(first.name);
       }
     } catch {
       setModels([]);
