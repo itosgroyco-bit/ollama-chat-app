@@ -54,7 +54,7 @@ export async function* streamChat(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ model, messages, stream: true }),
-    signal,
+    signal: signal ?? null,
   });
 
   if (!res.ok) {
